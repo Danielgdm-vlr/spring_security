@@ -14,6 +14,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
+                // for white listing
+                .antMatchers("/", "index", "/css/*", "/js/*")
+                .permitAll()
                 .anyRequest()
                 // any request must be authenticated, i.e. the client must specify the username and password
                 .authenticated()
